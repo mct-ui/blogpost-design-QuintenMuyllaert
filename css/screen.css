@@ -1,3 +1,16 @@
+@font-face {
+    font-family: "Inter Web";
+    font-weight: 400;
+    src: url("../fonts/Inter-Regular.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Inter Web";
+    font-weight: 700;
+    src: url("../fonts/Inter-Bold.woff") format("woff")
+}
+
+
 /*
     Elements: Page
     ---
@@ -7,15 +20,19 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
-    color: #111;
+    /*font-family: "Inter Web", "Helvetica Neue", Helvetica, arial, sans-serif;*/
+    font-family: "Droid Serif", Georgia, Serif;
+    color: #5C6366;
     padding: 48px 24px 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
     max-width: 42em;
     margin: 0 auto;
 }
+
 
 /*
  * Remove text-shadow in selection highlight:
@@ -25,10 +42,11 @@ body {
  */
 
 ::selection {
-    background: #e85e00;
+    background: #00E6A1;
     color: white;
     text-shadow: none;
 }
+
 
 /*
     Elements: Images
@@ -41,16 +59,23 @@ img {
     vertical-align: top;
 }
 
+
 /*
     Elements: typography
     ---
     Default markup for typographic elements
 */
 
+h1,
+h2,
+h3 {
+    font-family: "Inter Web", "Helvetica Neue", Helvetica, arial, sans-serif;
+    color: #17181A;
+}
+
 h1 {
-    font-family: "Times New Roman", serif;
+    font-family: "Playfair Display", "helvetica", serif;
     font-size: 36px;
-    font-weight: normal;
     line-height: 40px;
     margin: 0 0 24px;
 }
@@ -59,6 +84,10 @@ h2 {
     font-size: 23px;
     line-height: 32px;
     margin: 0 0 24px;
+}
+
+*+h2 {
+    margin-top: 48px;
 }
 
 h3 {
@@ -129,17 +158,104 @@ a {
 
 a:visited,
 a:active {
-    color: BlueViolet;
+    color: #00E6A1;
 }
 
 a:hover,
 a:focus {
-    color: Crimson;
+    color: #1ABAFF;
 }
+
+
+/*components: article*/
+
+.c-article__header,
+.c-article__body {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.c-article__header {
+    padding: 24px 24px 0;
+}
+
+.c-article__body {
+    padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+    .c-article__header {
+        padding: 48px 48px 24px;
+    }
+    .c-article__author {
+        padding-bottom: 24px;
+    }
+    .c-article__body {
+        padding: 24px 48px;
+    }
+}
+
+@media (min-width: 992px) {
+    .c-article__body {
+        display: flex;
+        gap: 24px;
+    }
+    .c-article__author {
+        width: 25%;
+    }
+    .c-article__content {
+        width: 75%;
+    }
+}
+
+
+/*components: author*/
+
+.c-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+
+.c-author__image {
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+}
+
+.c-author__name,
+.c-author__meta {
+    margin-bottom: 0;
+}
+
+.c-author__name {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.c-author__meta {
+    font-size: 14px;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    line-height: 24px;
+}
+
+@media (min-width: 992px) {
+    .c-author {
+        flex-direction: column;
+        align-items: start;
+    }
+}
+
+.u-max-width-sm {
+    max-width: 36em;
+}
+
 
 /* Small devices (landscape phones, 576px and up) */
 
 @media (min-width: 576px) {}
+
 
 /* Medium devices (tablets, 768px and up) */
 
@@ -153,13 +269,16 @@ a:focus {
     }
 }
 
+
 /* Large devices (landscape tablets, desktops, 992px and up) */
 
 @media (min-width: 992px) {}
 
+
 /* Extra large devices (large desktops, 1200px and up) */
 
 @media (min-width: 1200px) {}
+
 
 /*
     Print styles.
